@@ -36,7 +36,8 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/state-in-constructor": [0],
-    "arrow-body-style": [0]
+    "arrow-body-style": [0],
+    "class-methods-use-this": [0]
   },
   "parser": "babel-eslint"
 };

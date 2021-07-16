@@ -7,18 +7,16 @@ export default class ItemAddForm extends Component {
     label: ''
   };
 
-  onLabelChange = (e) => {
+  onLabelChange = (event) => {
     this.setState({
-      label: e.target.value
+      label: event.target.value
     });
   };
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    const { label } = this.state;
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.props.onItemAdded(this.state.label);
     this.setState({ label: '' });
-    const cb = this.props.onItemAdded || (() => {});
-    cb(label);
   };
 
   render() {

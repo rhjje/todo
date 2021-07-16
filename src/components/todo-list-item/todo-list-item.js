@@ -2,8 +2,8 @@ import React from 'react';
 
 import './todo-list-item.scss';
 
-const TodoListItem = ({ important, done,
-  label, onToggleImportant, onToggleDone, onDelete }) => {
+const TodoListItem = ({ label, important, done, onToggleDone,
+  onToggleImportant, onDelete }) => {
   let classNames = 'todo-list-item';
   if (important) {
     classNames += ' important';

@@ -6,7 +6,7 @@ const filterButtons = [
   { name: 'done', label: 'Done' }
 ];
 
-const ItemStatusFilter = ({ filter, onFilterChange = () => {} }) => {
+const ItemStatusFilter = ({ filter, onFilterChange }) => {
   const buttons = filterButtons.map(({ name, label }) => {
     const isActive = name === filter;
     const classNames = `btn ${isActive ? 'btn-info' : 'btn-outline-secondary'}`;
@@ -25,7 +25,7 @@ const ItemStatusFilter = ({ filter, onFilterChange = () => {} }) => {
 
   return (
     <div className="btn-group">
-      { buttons }
+      {buttons}
     </div>
   );
 };

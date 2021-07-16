@@ -13,15 +13,15 @@ const TodoList = ({ items, onToggleImportant, onToggleDone, onDelete }) => {
           label={label}
           important={important}
           done={done}
-          onToggleImportant={() => onToggleImportant(id)}
           onToggleDone={() => onToggleDone(id)}
+          onToggleImportant={() => onToggleImportant(id)}
           onDelete={() => onDelete(id)}
         />
       </li>
     );
   });
 
-  return (<ul className="todo-list list-group">{ elements }</ul>);
+  return (<ul className="todo-list list-group">{elements}</ul>);
 };
 
 export default TodoList;

@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
 
 import AppHeader from '../app-header/app-header';
@@ -10,8 +9,6 @@ import ItemAddForm from '../item-add-form/item-add-form';
 import './app.scss';
 
 export default class App extends Component {
-  maxId = 100;
-
   state = {
     items: [
       { id: 1, label: 'Learn javaScript', important: false, done: false },
@@ -76,9 +73,8 @@ export default class App extends Component {
   };
 
   createItem(label) {
-    this.maxId += 1;
     return {
-      id: this.maxId,
+      id: Date.now().toString(),
       label,
       important: false,
       done: false
