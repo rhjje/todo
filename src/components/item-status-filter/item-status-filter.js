@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { toggleFilter } from '../../actions/actions';
 
 const filterButtons = [
   { name: 'all', label: 'All' },
@@ -30,4 +32,18 @@ const ItemStatusFilter = ({ filter, onFilterChange }) => {
   );
 };
 
-export default ItemStatusFilter;
+const mapStateToProps = (state) => {
+  return {
+    filter: state.filter
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onFilterChange: (name) => {
+      dispatch(toggleFilter(name));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemStatusFilter);

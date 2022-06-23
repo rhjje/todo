@@ -1,7 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './app-header.scss';
 
-const AppHeader = ({ toDo, done }) => {
+const AppHeader = ({ items }) => {
+  const done = items.filter((item) => item.done).length;
+  const toDo = items.length - done;
+
   return (
     <div className="app-header d-flex">
       <h1>Todo List</h1>
@@ -10,4 +14,10 @@ const AppHeader = ({ toDo, done }) => {
   );
 };
 
-export default AppHeader;
+const mapStateToProps = (state) => {
+  return {
+    items: state.todos
+  };
+};
+
+export default connect(mapStateToProps)(AppHeader);

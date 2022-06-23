@@ -1,30 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { search } from '../../actions/actions';
 
 import './search-panel.scss';
 
-export default class SearchPanel extends Component {
-  state = {
-    term: ''
+const SearchPanel = ({ term, searchTodo }) => {
+  const onTermChange = (event) => {
+    searchTodo(event.target.value);
   };
 
-  onTermChange = (e) => {
-    const { onSearchChange } = this.props;
-    this.setState({
-      term: e.target.value
-    });
+  return (
+    <input
+      type="text"
+      className="form-control search-input"
+      placeholder="type to search"
+      value={term}
+      onChange={onTermChange}
+    />
+  );
+};
 
-    onSearchChange(e.target.value);
+const mapStateToProps = (state) => {
+  return {
+    term: state.search
   };
+};
 
-  render() {
-    return (
-      <input
-        type="text"
-        className="form-control search-input"
-        placeholder="type to search"
-        value={this.state.term}
-        onChange={this.onTermChange}
-      />
-    );
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchTodo: (id) => {
+      dispatch(search(id));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPanel);
