@@ -3,17 +3,27 @@ import { connect } from 'react-redux';
 import { deleteTodo, toggleDone, toggleImportant } from '../../actions/actions';
 
 import TodoListItem from '../todo-list-item/todo-list-item';
+import { TodoItem, Filter } from '../../types/types';
 import './todo-list.scss';
+
+interface TodoListProps {
+  items: TodoItem[];
+  search: string;
+  filter: Filter;
+  toggleDone: (id: number) => void;
+  toggleImportant: (id: number) => void;
+  deleteTodo: (id: number) => void;
+}
 
 const TodoList = ({
   items,
   search,
   filter,
-  onToggleImportant,
-  onToggleDone,
-  onDelete,
-}) => {
-  const searchItems = (todos, searchFilter) => {
+  toggleDone,
+  toggleImportant,
+  deleteTodo,
+}: TodoListProps) => {
+  const searchItems = (todos: TodoItem[], searchFilter: string) => {
     if (searchFilter.length === 0) {
       return todos;
     }
@@ -23,7 +33,7 @@ const TodoList = ({
     });
   };
 
-  const filterItems = (todos, activeFilter) => {
+  const filterItems = (todos: TodoItem[], activeFilter: Filter) => {
     if (activeFilter === 'active') {
       return todos.filter((item) => !item.done);
     }
@@ -43,9 +53,9 @@ const TodoList = ({
           label={label}
           important={important}
           done={done}
-          onToggleDone={() => onToggleDone(id)}
-          onToggleImportant={() => onToggleImportant(id)}
-          onDelete={() => onDelete(id)}
+          onToggleDone={() => toggleDone(id)}
+          onToggleImportant={() => toggleImportant(id)}
+          onDelete={() => deleteTodo(id)}
         />
       </li>
     );
@@ -54,7 +64,7 @@ const TodoList = ({
   return <ul className="todo-list list-group">{elements}</ul>;
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     items: state.todos,
     search: state.search,
@@ -62,18 +72,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onToggleDone: (id) => {
-      dispatch(toggleDone(id));
-    },
-    onToggleImportant: (id) => {
-      dispatch(toggleImportant(id));
-    },
-    onDelete: (id) => {
-      dispatch(deleteTodo(id));
-    },
-  };
+const mapDispatchToProps = {
+  toggleDone,
+  toggleImportant,
+  deleteTodo,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
