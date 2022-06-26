@@ -5,7 +5,7 @@ import { toggleFilter } from '../../actions/actions';
 const filterButtons = [
   { name: 'all', label: 'All' },
   { name: 'active', label: 'Active' },
-  { name: 'done', label: 'Done' }
+  { name: 'done', label: 'Done' },
 ];
 
 const ItemStatusFilter = ({ filter, onFilterChange }) => {
@@ -25,16 +25,12 @@ const ItemStatusFilter = ({ filter, onFilterChange }) => {
     );
   });
 
-  return (
-    <div className="btn-group">
-      {buttons}
-    </div>
-  );
+  return <div className="btn-group">{buttons}</div>;
 };
 
 const mapStateToProps = (state) => {
   return {
-    filter: state.filter
+    filter: state.filter,
   };
 };
 
@@ -42,7 +38,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFilterChange: (name) => {
       dispatch(toggleFilter(name));
-    }
+    },
   };
 };
 

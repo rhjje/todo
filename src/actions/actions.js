@@ -3,30 +3,30 @@ export const addTodo = (label) => ({
   id: Date.now().toString(),
   label,
   important: false,
-  done: false
+  done: false,
 });
 
 export const deleteTodo = (id) => ({
   type: 'DELETE_TODO',
-  id
+  id,
 });
 
 export const toggleDone = (id) => ({
   type: 'TOGGLE_DONE',
-  id
+  id,
 });
 
 export const toggleImportant = (id) => ({
   type: 'TOGGLE_IMPORTANT',
-  id
+  id,
 });
 
 export const search = (text) => ({
   type: 'SEARCH',
-  text
+  text,
 });
 
 export const toggleFilter = (filter) => ({
   type: 'FILTER',
-  filter
+  filter,
 });

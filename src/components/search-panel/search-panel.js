@@ -22,7 +22,7 @@ const SearchPanel = ({ term, searchTodo }) => {
 
 const mapStateToProps = (state) => {
   return {
-    term: state.search
+    term: state.search,
   };
 };
 
@@ -30,7 +30,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     searchTodo: (id) => {
       dispatch(search(id));
-    }
+    },
   };
 };
 

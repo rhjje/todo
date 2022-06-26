@@ -16,7 +16,7 @@ const AppHeader = ({ items }) => {
 
 const mapStateToProps = (state) => {
   return {
-    items: state.todos
+    items: state.todos,
   };
 };
 

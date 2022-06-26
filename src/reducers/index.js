@@ -6,5 +6,5 @@ import filter from './filter';
 export default combineReducers({
   todos,
   search,
-  filter
+  filter,
 });

@@ -6,12 +6,12 @@ import './item-add-form.scss';
 
 class ItemAddForm extends Component {
   state = {
-    label: ''
+    label: '',
   };
 
   onLabelChange = (event) => {
     this.setState({
-      label: event.target.value
+      label: event.target.value,
     });
   };
 
@@ -31,7 +31,9 @@ class ItemAddForm extends Component {
           onChange={this.onLabelChange}
           placeholder="What needs to be done?"
         />
-        <button type="submit" className="btn btn-outline-secondary">Add</button>
+        <button type="submit" className="btn btn-outline-secondary">
+          Add
+        </button>
       </form>
     );
   }
@@ -41,7 +43,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     addTodo: (id) => {
       dispatch(addTodo(id));
-    }
+    },
   };
 };
 

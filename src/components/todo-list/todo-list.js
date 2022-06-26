@@ -5,7 +5,14 @@ import { deleteTodo, toggleDone, toggleImportant } from '../../actions/actions';
 import TodoListItem from '../todo-list-item/todo-list-item';
 import './todo-list.scss';
 
-const TodoList = ({ items, search, filter, onToggleImportant, onToggleDone, onDelete }) => {
+const TodoList = ({
+  items,
+  search,
+  filter,
+  onToggleImportant,
+  onToggleDone,
+  onDelete,
+}) => {
   const searchItems = (todos, searchFilter) => {
     if (searchFilter.length === 0) {
       return todos;
@@ -18,7 +25,7 @@ const TodoList = ({ items, search, filter, onToggleImportant, onToggleDone, onDe
 
   const filterItems = (todos, activeFilter) => {
     if (activeFilter === 'active') {
-      return todos.filter((item) => (!item.done));
+      return todos.filter((item) => !item.done);
     }
     if (activeFilter === 'done') {
       return todos.filter((item) => item.done);
@@ -44,14 +51,14 @@ const TodoList = ({ items, search, filter, onToggleImportant, onToggleDone, onDe
     );
   });
 
-  return (<ul className="todo-list list-group">{elements}</ul>);
+  return <ul className="todo-list list-group">{elements}</ul>;
 };
 
 const mapStateToProps = (state) => {
   return {
     items: state.todos,
     search: state.search,
-    filter: state.filter
+    filter: state.filter,
   };
 };
 
@@ -65,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     onDelete: (id) => {
       dispatch(deleteTodo(id));
-    }
+    },
   };
 };
 
