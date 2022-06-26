@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 import { search } from '../../actions/actions';
 
 import './search-panel.scss';
 
-const SearchPanel = ({ term, searchTodo }) => {
-  const onTermChange = (event) => {
-    searchTodo(event.target.value);
+interface SearchPanelProps {
+  term: string;
+  search: (value: string) => void;
+}
+
+const SearchPanel = ({ term, search }: SearchPanelProps) => {
+  const onTermChange = (event: ChangeEvent<HTMLInputElement>) => {
+    search(event.target.value);
   };
 
   return (
@@ -20,18 +25,12 @@ const SearchPanel = ({ term, searchTodo }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     term: state.search,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    searchTodo: (id) => {
-      dispatch(search(id));
-    },
-  };
-};
+const mapDispatchToProps = { search };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPanel);
