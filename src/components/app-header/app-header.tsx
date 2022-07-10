@@ -1,8 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { TodoItem } from '../../types/types';
 import './app-header.scss';
 
-const AppHeader = ({ items }) => {
+interface AppHeaderProps {
+  items: TodoItem[];
+}
+
+const AppHeader = ({ items }: AppHeaderProps) => {
   const done = items.filter((item) => item.done).length;
   const toDo = items.length - done;
 
@@ -14,7 +19,7 @@ const AppHeader = ({ items }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     items: state.todos,
   };
