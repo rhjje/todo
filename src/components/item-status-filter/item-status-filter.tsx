@@ -7,8 +7,12 @@ const filterButtons = [
   { name: 'active', label: 'Active' },
   { name: 'done', label: 'Done' },
 ];
+interface ItemStatusFilterProps {
+  filter: string;
+  toggleFilter: (value: string) => void;
+}
 
-const ItemStatusFilter = ({ filter, onFilterChange }) => {
+const ItemStatusFilter = ({ filter, toggleFilter }: ItemStatusFilterProps) => {
   const buttons = filterButtons.map(({ name, label }) => {
     const isActive = name === filter;
     const classNames = `btn ${isActive ? 'btn-info' : 'btn-outline-secondary'}`;
@@ -17,7 +21,7 @@ const ItemStatusFilter = ({ filter, onFilterChange }) => {
       <button
         key={name}
         type="button"
-        onClick={() => onFilterChange(name)}
+        onClick={() => toggleFilter(name)}
         className={classNames}
       >
         {label}
@@ -28,18 +32,14 @@ const ItemStatusFilter = ({ filter, onFilterChange }) => {
   return <div className="btn-group">{buttons}</div>;
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     filter: state.filter,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onFilterChange: (name) => {
-      dispatch(toggleFilter(name));
-    },
-  };
+const mapDispatchToProps = {
+  toggleFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemStatusFilter);
