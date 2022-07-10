@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../actions/actions';
 
 import './item-add-form.scss';
 
-class ItemAddForm extends Component {
+interface ItemAddFormProps {
+  addTodo: (value: string) => void;
+}
+
+class ItemAddForm extends Component<ItemAddFormProps> {
   state = {
     label: '',
   };
 
-  onLabelChange = (event) => {
+  onLabelChange = (event: ChangeEvent<HTMLInputElement>) => {
     this.setState({
       label: event.target.value,
     });
   };
 
-  onSubmit = (event) => {
+  onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     this.props.addTodo(this.state.label);
     this.setState({ label: '' });
@@ -39,12 +43,6 @@ class ItemAddForm extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addTodo: (id) => {
-      dispatch(addTodo(id));
-    },
-  };
-};
+const mapDispatchToProps = { addTodo };
 
 export default connect(null, mapDispatchToProps)(ItemAddForm);
