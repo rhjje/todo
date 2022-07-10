@@ -8,6 +8,7 @@ import reducer from './reducers';
 const store = createStore(reducer);
 
 ReactDom.render(
+  // @ts-ignore
   <Provider store={store}>
     <App />
   </Provider>,

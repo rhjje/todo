@@ -1,4 +1,6 @@
-const search = (state = '', action) => {
+import { Reducer } from 'redux';
+
+const search: Reducer = (state = '', action) => {
   if (action.type === 'SEARCH') {
     return action.text;
   }

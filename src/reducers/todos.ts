@@ -1,10 +1,12 @@
+import { Reducer } from 'redux';
+
 const initialState = [
   { id: 1, label: 'Learn javaScript', important: false, done: true },
   { id: 2, label: 'Learn React + redux', important: true, done: false },
   { id: 3, label: 'Learn Redux', important: true, done: false },
 ];
 
-const todos = (state = initialState, action) => {
+const todos: Reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -17,17 +19,17 @@ const todos = (state = initialState, action) => {
         },
       ];
     case 'DELETE_TODO': {
-      const index = state.findIndex((item) => item.id === action.id);
+      const index = state.findIndex((item: any) => item.id === action.id);
       return [...state.slice(0, index), ...state.slice(index + 1)];
     }
     case 'TOGGLE_DONE': {
-      const index = state.findIndex((item) => item.id === action.id);
+      const index = state.findIndex((item: any) => item.id === action.id);
       const oldItem = state[index];
       oldItem.done = !oldItem.done;
       return [...state.slice(0, index), oldItem, ...state.slice(index + 1)];
     }
     case 'TOGGLE_IMPORTANT': {
-      const index = state.findIndex((item) => item.id === action.id);
+      const index = state.findIndex((item: any) => item.id === action.id);
       const oldItem = state[index];
       oldItem.important = !oldItem.important;
       return [...state.slice(0, index), oldItem, ...state.slice(index + 1)];

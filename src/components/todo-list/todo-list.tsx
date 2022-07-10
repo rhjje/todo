@@ -10,9 +10,9 @@ interface TodoListProps {
   items: TodoItem[];
   search: string;
   filter: Filter;
-  toggleDone: (id: number) => void;
-  toggleImportant: (id: number) => void;
-  deleteTodo: (id: number) => void;
+  toggleDone: (id: string) => void;
+  toggleImportant: (id: string) => void;
+  deleteTodo: (id: string) => void;
 }
 
 const TodoList = ({
