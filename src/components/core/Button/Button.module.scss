@@ -1,0 +1,17 @@
+.Button {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.ButtonSmall {
+  padding: 4px 8px;
+}
+
+.ButtonNormal {
+  padding: 6px 12px;
+}

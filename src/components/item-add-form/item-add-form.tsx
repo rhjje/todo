@@ -1,6 +1,7 @@
 import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../actions/actions';
+import { Input } from '../core/Input';
 
 import './item-add-form.scss';
 
@@ -28,9 +29,8 @@ class ItemAddForm extends Component<ItemAddFormProps> {
   render() {
     return (
       <form className="bottom-panel d-flex" onSubmit={this.onSubmit}>
-        <input
+        <Input
           type="text"
-          className="form-control new-todo-label"
           value={this.state.label}
           onChange={this.onLabelChange}
           placeholder="What needs to be done?"
