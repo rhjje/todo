@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import { connect } from 'react-redux';
 import { search } from '../../actions/actions';
-
+import { Input } from '../core/Input';
 import './search-panel.scss';
 
 interface SearchPanelProps {
@@ -15,9 +15,8 @@ const SearchPanel = ({ term, search }: SearchPanelProps) => {
   };
 
   return (
-    <input
+    <Input
       type="text"
-      className="form-control search-input"
       placeholder="type to search"
       value={term}
       onChange={onTermChange}

@@ -1,3 +1,15 @@
 .Input {
+  width: 100%;
   font-size: 16px;
+  padding: 6px 12px;
+  color: var(--color-dark);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--border-radius);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+  &:focus {
+    border-color: var(--color-blue);
+    box-shadow: var(--shadow-fieds);
+    outline: 0;
+  }
 }
