@@ -2,7 +2,7 @@ import { forwardRef, ButtonHTMLAttributes, ReactNode } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   color?: 'grey' | 'blue' | 'red' | 'green';
   size?: 'small' | 'normal';
