@@ -1,5 +1,7 @@
 import React from 'react';
-
+import { Icons } from 'components/core/Icons';
+import { Button } from 'components/core/Button';
+import styles from './TodoListItem.module.scss';
 import './todo-list-item.scss';
 
 interface TodoListItemProps {
@@ -29,25 +31,24 @@ const TodoListItem = ({
   }
 
   return (
-    <span className={classNames}>
+    <div className={classNames}>
       <span className="todo-list-item-label" onClick={onToggleDone}>
         {label}
       </span>
-      <button
-        type="button"
-        className="btn btn-outline-success btn-sm float-right"
-        onClick={onToggleImportant}
-      >
-        <i className="fa fa-exclamation" />
-      </button>
-      <button
-        type="button"
-        className="btn btn-outline-danger btn-sm float-right"
-        onClick={onDelete}
-      >
-        <i className="fa fa-trash-o" />
-      </button>
-    </span>
+      <div className={styles.Buttons}>
+        <Button
+          type="button"
+          color="green"
+          size="small"
+          onClick={onToggleImportant}
+        >
+          <Icons.Exclamation />
+        </Button>
+        <Button type="button" color="red" size="small" onClick={onDelete}>
+          <Icons.Trash />
+        </Button>
+      </div>
+    </div>
   );
 };
 

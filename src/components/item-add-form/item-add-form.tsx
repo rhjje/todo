@@ -1,7 +1,8 @@
 import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../../actions/actions';
-import { Input } from '../core/Input';
+import { Input } from 'components/core/Input';
+import { Button } from 'components/core/Button';
 
 import './item-add-form.scss';
 
@@ -35,9 +36,7 @@ class ItemAddForm extends Component<ItemAddFormProps> {
           onChange={this.onLabelChange}
           placeholder="What needs to be done?"
         />
-        <button type="submit" className="btn btn-outline-secondary">
-          Add
-        </button>
+        <Button type="submit">Add</Button>
       </form>
     );
   }

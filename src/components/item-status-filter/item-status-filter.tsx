@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleFilter } from '../../actions/actions';
+import { Button } from 'components/core/Button';
+import { GroupButtons } from 'components/core/GroupButtons';
 
 const filterButtons = [
   { name: 'all', label: 'All' },
@@ -15,21 +17,20 @@ interface ItemStatusFilterProps {
 const ItemStatusFilter = ({ filter, toggleFilter }: ItemStatusFilterProps) => {
   const buttons = filterButtons.map(({ name, label }) => {
     const isActive = name === filter;
-    const classNames = `btn ${isActive ? 'btn-info' : 'btn-outline-secondary'}`;
 
     return (
-      <button
+      <Button
         key={name}
         type="button"
         onClick={() => toggleFilter(name)}
-        className={classNames}
+        color={isActive ? 'blue' : 'grey'}
       >
         {label}
-      </button>
+      </Button>
     );
   });
 
-  return <div className="btn-group">{buttons}</div>;
+  return <GroupButtons>{buttons}</GroupButtons>;
 };
 
 const mapStateToProps = (state: any) => {

@@ -10,10 +10,14 @@
 }
 
 .ButtonSmall {
-  padding: 4px 8px;
+  font-size: 16px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
 }
 
 .ButtonNormal {
+  font-size: 16px;
   padding: 6px 12px;
 }
 
