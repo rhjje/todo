@@ -3,8 +3,17 @@
   --color-grey: #6c757d;
   --color-grey-light: #ced4da;
   --color-white: #ffffff;
-  --color-blue: #80bdff;
+  --color-blue-light: #80bdff;
+  --color-blue: #17a2b8;
+  --color-blue-dark: #117a8b;
+  --color-red: #dc3545;
+  --color-green: #28a745;
 
-  --shadow-fieds: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+  --shadow-input: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+  --shadow-button-grey: 0 0 0 0.2rem rgb(108 117 125 / 50%);
+  --shadow-button-blue: 0 0 0 0.2rem rgb(23 162 184 / 50%);
+  --shadow-button-red: 0 0 0 0.2rem rgb(220 53 69 / 50%);
+  --shadow-button-green: 0 0 0 0.2rem rgb(40 167 69 / 50%);
   --border-radius: 4px;
+  --transition-field: .15s ease-in-out;
 }

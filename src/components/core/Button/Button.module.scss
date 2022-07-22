@@ -2,6 +2,7 @@
   border-width: 1px;
   border-style: solid;
   border-radius: var(--border-radius);
+  transition: color var(--transition-field), background-color var(--transition-field), border-color var(--transition-field), box-shadow var(--transition-field);
 
   &:hover {
     cursor: pointer;
@@ -14,4 +15,64 @@
 
 .ButtonNormal {
   padding: 6px 12px;
+}
+
+.ButtonGrey {
+  background-color: var(--color-white);
+  border-color: var(--color-grey);
+  color: var(--color-grey);
+
+  &:hover {
+    background-color: var(--color-grey);
+    color: var(--color-white);
+  }
+
+  &:focus {
+    box-shadow: var(--shadow-button-grey);
+  }
+}
+
+.ButtonBlue {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+  color: var(--color-white);
+
+  &:hover {
+    background-color: var(--color-blue-dark);
+    border-color: var(--color-blue-dark);
+  }
+
+  &:focus {
+    box-shadow: var(--shadow-button-blue);
+  }
+}
+
+.ButtonRed {
+  background-color: var(--color-white);
+  border-color: var(--color-red);
+  color: var(--color-red);
+
+  &:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+  }
+
+  &:focus {
+    box-shadow: var(--shadow-button-red);
+  }
+}
+
+.ButtonGreen {
+  background-color: var(--color-white);
+  border-color: var(--color-green);
+  color: var(--color-green);
+
+  &:hover {
+    background-color: var(--color-green);
+    color: var(--color-white);
+  }
+
+  &:focus {
+    box-shadow: var(--shadow-button-green);
+  }
 }
