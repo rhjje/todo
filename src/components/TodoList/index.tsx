@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteTodo, toggleDone, toggleImportant } from 'actions/actions';
+import { deleteTodo, toggleDone, toggleImportant } from 'redux/actions/actions';
 import { TodoListItem } from 'components/TodoListItem';
 import { TodoItem, Filter } from 'types/types';
 import styles from './TodoList.module.scss';

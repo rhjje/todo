@@ -1,14 +1,26 @@
 import { Reducer } from 'redux';
+import { ActionType } from 'redux/types';
+import { Action } from 'redux/actions/actions';
 
 const initialState = [
-  { id: 1, label: 'Learn javaScript', important: false, done: true },
-  { id: 2, label: 'Learn React + redux', important: true, done: false },
-  { id: 3, label: 'Learn Redux', important: true, done: false },
+  { id: '1', label: 'Learn javaScript', important: false, done: true },
+  { id: '2', label: 'Learn React + redux', important: true, done: false },
+  { id: '3', label: 'Learn Redux', important: true, done: false },
 ];
 
-const todos: Reducer = (state = initialState, action) => {
+interface Todos {
+  id: string;
+  label: string;
+  important: boolean;
+  done: boolean;
+}
+
+export const todos: Reducer<Todos[], Action> = (
+  state = initialState,
+  action,
+) => {
   switch (action.type) {
-    case 'ADD_TODO':
+    case ActionType.AddTodo:
       return [
         ...state,
         {
@@ -18,17 +30,17 @@ const todos: Reducer = (state = initialState, action) => {
           done: action.done,
         },
       ];
-    case 'DELETE_TODO': {
+    case ActionType.DeleteTodo: {
       const index = state.findIndex((item: any) => item.id === action.id);
       return [...state.slice(0, index), ...state.slice(index + 1)];
     }
-    case 'TOGGLE_DONE': {
+    case ActionType.ToggleDone: {
       const index = state.findIndex((item: any) => item.id === action.id);
       const oldItem = state[index];
       oldItem.done = !oldItem.done;
       return [...state.slice(0, index), oldItem, ...state.slice(index + 1)];
     }
-    case 'TOGGLE_IMPORTANT': {
+    case ActionType.ToggleImportant: {
       const index = state.findIndex((item: any) => item.id === action.id);
       const oldItem = state[index];
       oldItem.important = !oldItem.important;
@@ -38,5 +50,3 @@ const todos: Reducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default todos;

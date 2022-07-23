@@ -1,10 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleFilter } from 'actions/actions';
+import { toggleFilter } from 'redux/actions/actions';
 import { Button } from 'components/core/Button';
 import { GroupButtons } from 'components/core/GroupButtons';
+import { Filter } from 'types/types';
+import { AppState } from 'redux/store';
 
-const filterButtons = [
+interface FilterButton {
+  name: Filter;
+  label: string;
+}
+
+const filterButtons: Array<FilterButton> = [
   { name: 'all', label: 'All' },
   { name: 'active', label: 'Active' },
   { name: 'done', label: 'Done' },
@@ -12,7 +19,7 @@ const filterButtons = [
 
 interface ItemStatusFilterProps {
   filter: string;
-  toggleFilter: (value: string) => void;
+  toggleFilter: (value: Filter) => void;
 }
 
 const ItemStatusFilter = ({ filter, toggleFilter }: ItemStatusFilterProps) => {
@@ -34,7 +41,7 @@ const ItemStatusFilter = ({ filter, toggleFilter }: ItemStatusFilterProps) => {
   return <GroupButtons>{buttons}</GroupButtons>;
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
   return {
     filter: state.filter,
   };

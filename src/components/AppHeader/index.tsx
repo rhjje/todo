@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { TodoItem } from 'types/types';
 import { textStyles } from 'utils/styles';
+import { AppState } from 'redux/store';
 import styles from './AppHeader.module.scss';
 
 interface AppHeaderProps {
@@ -23,7 +24,7 @@ const AppHeader = ({ items }: AppHeaderProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
   return {
     items: state.todos,
   };

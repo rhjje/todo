@@ -1,7 +1,8 @@
 import React, { ChangeEvent } from 'react';
 import { connect } from 'react-redux';
+import { search } from 'redux/actions/actions';
+import { AppState } from 'redux/store';
 import { Input } from 'components/core/Input';
-import { search } from 'actions/actions';
 
 interface SearchPanelProps {
   term: string;
@@ -23,7 +24,7 @@ const SearchInput = ({ term, search }: SearchPanelProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
   return {
     term: state.search,
   };
