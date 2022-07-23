@@ -1,8 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Icons } from 'components/core/Icons';
 import { Button } from 'components/core/Button';
+import { textStyles } from 'utils/styles';
 import styles from './TodoListItem.module.scss';
-import './todo-list-item.scss';
 
 interface TodoListItemProps {
   label: string;
@@ -13,7 +14,7 @@ interface TodoListItemProps {
   onDelete: () => void;
 }
 
-const TodoListItem = ({
+export const TodoListItem = ({
   label,
   important,
   done,
@@ -21,22 +22,21 @@ const TodoListItem = ({
   onToggleImportant,
   onDelete,
 }: TodoListItemProps) => {
-  let classNames = 'todo-list-item';
-  if (important) {
-    classNames += ' important';
-  }
-
-  if (done) {
-    classNames += ' done';
-  }
-
   return (
-    <div className={classNames}>
-      <span className="todo-list-item-label" onClick={onToggleDone}>
+    <div className={styles.TodoListItem}>
+      <span
+        className={classNames(
+          styles.Label,
+          done && styles.LabelDone,
+          important && textStyles.ImportantText,
+        )}
+        onClick={onToggleDone}
+      >
         {label}
       </span>
       <div className={styles.Buttons}>
         <Button
+          className={styles.Button}
           type="button"
           color="green"
           size="small"
@@ -44,12 +44,16 @@ const TodoListItem = ({
         >
           <Icons.Exclamation />
         </Button>
-        <Button type="button" color="red" size="small" onClick={onDelete}>
+        <Button
+          className={styles.Button}
+          type="button"
+          color="red"
+          size="small"
+          onClick={onDelete}
+        >
           <Icons.Trash />
         </Button>
       </div>
     </div>
   );
 };
-
-export default TodoListItem;

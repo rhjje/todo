@@ -1,6 +1,6 @@
 import React, { Component, ChangeEvent, FormEvent } from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '../../actions/actions';
+import { addTodo } from 'actions/actions';
 import { Input } from 'components/core/Input';
 import { Button } from 'components/core/Button';
 import styles from './ItemAddForm.module.scss';

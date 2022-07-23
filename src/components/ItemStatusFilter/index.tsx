@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleFilter } from '../../actions/actions';
+import { toggleFilter } from 'actions/actions';
 import { Button } from 'components/core/Button';
 import { GroupButtons } from 'components/core/GroupButtons';
 
@@ -9,6 +9,7 @@ const filterButtons = [
   { name: 'active', label: 'Active' },
   { name: 'done', label: 'Done' },
 ];
+
 interface ItemStatusFilterProps {
   filter: string;
   toggleFilter: (value: string) => void;
@@ -43,4 +44,9 @@ const mapDispatchToProps = {
   toggleFilter,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemStatusFilter);
+const ConnectedComponent = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ItemStatusFilter);
+
+export { ConnectedComponent as ItemStatusFilter };

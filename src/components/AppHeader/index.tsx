@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { TodoItem } from '../../types/types';
+import classNames from 'classnames';
+import { TodoItem } from 'types/types';
 import { textStyles } from 'utils/styles';
 import styles from './AppHeader.module.scss';
 
@@ -16,7 +17,7 @@ const AppHeader = ({ items }: AppHeaderProps) => {
     <div className={styles.AppHeader}>
       <h1 className={textStyles.Heading1}>Todo List</h1>
       <h2
-        className={`${textStyles.Heading2} ${textStyles.GreyText}`}
+        className={classNames(textStyles.Heading2, textStyles.GreyText)}
       >{`${toDo} more to do, ${done} done`}</h2>
     </div>
   );

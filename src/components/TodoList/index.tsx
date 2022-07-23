@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { deleteTodo, toggleDone, toggleImportant } from '../../actions/actions';
-
-import TodoListItem from '../todo-list-item/todo-list-item';
-import { TodoItem, Filter } from '../../types/types';
-import './todo-list.scss';
+import { deleteTodo, toggleDone, toggleImportant } from 'actions/actions';
+import { TodoListItem } from 'components/TodoListItem';
+import { TodoItem, Filter } from 'types/types';
+import styles from './TodoList.module.scss';
 
 interface TodoListProps {
   items: TodoItem[];
@@ -48,7 +47,7 @@ const TodoList = ({
   const elements = visibleItems.map((item) => {
     const { id, label, important, done } = item;
     return (
-      <li key={id} className="list-group-item">
+      <li key={id} className={styles.ListItem}>
         <TodoListItem
           label={label}
           important={important}
@@ -61,7 +60,7 @@ const TodoList = ({
     );
   });
 
-  return <ul className="todo-list list-group">{elements}</ul>;
+  return <ul className={styles.TodoList}>{elements}</ul>;
 };
 
 const mapStateToProps = (state: any) => {
@@ -78,4 +77,9 @@ const mapDispatchToProps = {
   deleteTodo,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+const ConnectedComponent = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TodoList);
+
+export { ConnectedComponent as TodoList };
