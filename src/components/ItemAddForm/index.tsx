@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { addTodo } from '../../actions/actions';
 import { Input } from 'components/core/Input';
 import { Button } from 'components/core/Button';
-
-import './item-add-form.scss';
+import styles from './ItemAddForm.module.scss';
 
 interface ItemAddFormProps {
   addTodo: (value: string) => void;
@@ -29,7 +28,7 @@ class ItemAddForm extends Component<ItemAddFormProps> {
 
   render() {
     return (
-      <form className="bottom-panel d-flex" onSubmit={this.onSubmit}>
+      <form className={styles.ItemAddForm} onSubmit={this.onSubmit}>
         <Input
           type="text"
           value={this.state.label}
@@ -44,4 +43,6 @@ class ItemAddForm extends Component<ItemAddFormProps> {
 
 const mapDispatchToProps = { addTodo };
 
-export default connect(null, mapDispatchToProps)(ItemAddForm);
+const ConnectedComponent = connect(null, mapDispatchToProps)(ItemAddForm);
+
+export { ConnectedComponent as ItemAddForm };

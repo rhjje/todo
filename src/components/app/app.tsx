@@ -1,10 +1,9 @@
 import React from 'react';
-
-import AppHeader from '../app-header/app-header';
+import { AppHeader } from 'components/AppHeader';
 import TodoList from '../todo-list/todo-list';
 import SearchPanel from '../search-panel/search-panel';
 import ItemStatusFilter from '../item-status-filter/item-status-filter';
-import ItemAddForm from '../item-add-form/item-add-form';
+import { ItemAddForm } from 'components/ItemAddForm';
 
 import './app.scss';
 
