@@ -35,7 +35,9 @@ class ItemAddForm extends Component<ItemAddFormProps> {
           onChange={this.onLabelChange}
           placeholder="What needs to be done?"
         />
-        <Button type="submit">Add</Button>
+        <Button type="submit" disabled={!this.state.label}>
+          Add
+        </Button>
       </form>
     );
   }
