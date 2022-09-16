@@ -3,9 +3,10 @@ import { ActionType } from 'redux/types';
 import { Action } from 'redux/actions/actions';
 
 const initialState = [
-  { id: '1', label: 'Learn javaScript', important: false, done: true },
-  { id: '2', label: 'Learn React + redux', important: true, done: false },
-  { id: '3', label: 'Learn Redux', important: true, done: false },
+  { id: '1', label: 'Learn JavaScript', important: false, done: true },
+  { id: '1', label: 'Learn TypeScript', important: false, done: true },
+  { id: '2', label: 'Learn React', important: false, done: true },
+  { id: '3', label: 'Learn Node.js', important: true, done: false },
 ];
 
 interface Todos {
