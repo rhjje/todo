@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { deleteTodo, toggleDone, toggleImportant } from 'redux/actions/actions';
 import { TodoListItem } from 'components/TodoListItem';
 import { TodoItem, Filter } from 'types/types';
+import { AppState } from 'redux/store';
 import styles from './TodoList.module.scss';
 
 interface TodoListProps {
@@ -63,7 +64,7 @@ const TodoList = ({
   return <ul className={styles.TodoList}>{elements}</ul>;
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppState) => {
   return {
     items: state.todos,
     search: state.search,
